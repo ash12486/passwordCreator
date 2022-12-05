@@ -46,3 +46,6 @@ This is what the result should look like.
 ![Final result](./assets/images/mockup.png)
 
 ## DESIGNER NOTES
+* This program uses prompts to gain user inputs.
+* The user inputs are Boolean values.
+* The 'For Loop' uses 'Math.Random' to create a random selection of each type of character, based on the user inputs. 
