@@ -12,38 +12,37 @@ var userSpecialChar
 var userUpperCase
 var userLowerCase
 var userNumeric
+var specialCharSet = ['!','#','$','%','&','(',')'];
+var upperCaseSet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+var lowerCaseSet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+var numericSet = ['0','1','2','3','4','5','6','7','8','9'];
 
 // EVENT LISTENER TO GENERATE BUTTON
 generateBtn.addEventListener('click', writePassword);
 
-    var specialCharSet = ['!','#','$','%','&','(',')'];
-    var upperCaseSet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
-    var lowerCaseSet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
-    var numericSet = ['0','1','2','3','4','5','6','7','8','9'];
-
 // FUNCTION TO RETRIEVE USER INPUT AND VALIDATE DATA    
 function generatePassword() {
     passwordLength = Number(prompt('How many characters should your password be? Choose a valid number between 8 and 128.'));     
-        console.log("passwordLength",passwordLength);
+        console.log('passwordLength',passwordLength);
         if (passwordLength < 8 || passwordLength > 128) {
-            alert("Invalid password length.")
+            alert('Invalid password length.')
             return   
         }
         if (isNaN(passwordLength)) {
-            alert("Entry not valid, please enter a number.")
+            alert('Entry not valid, please enter a number.')
             return
         }
     userSpecialChar = confirm('Click OK to include Special characters; Cancel will not include them.');
-        console.log("userSpecialChar",userSpecialChar);
+        console.log('userSpecialChar',userSpecialChar);
     userUpperCase = confirm('Click OK to include Uppercase characters; Cancel will not include them.');
-        console.log("uesrUpperCase",userUpperCase);
+        console.log('uesrUpperCase',userUpperCase);
     userLowerCase = confirm('Click OK to include Lowercase characters; Cancel will not include them.');
-        console.log("userLowerCase",userLowerCase);
+        console.log('userLowerCase',userLowerCase);
     userNumeric = confirm('Click OK to include Numeric characters; Cancel will not include them.');
-        console.log("userNumeric", userNumeric);
+        console.log('userNumeric', userNumeric);
 
         if (!userSpecialChar && !userLowerCase && !userNumeric && !userUpperCase){
-            alert("No choice made, please make at least one selection.")
+            alert('No choice made, please make at least one selection.')
             return
         }    
     var newPassword = getChar();
@@ -53,7 +52,7 @@ function generatePassword() {
 // FUNCTION TO COMBINE USER DATA AND CHARACTER ARRAYS TO RETURN A UNIQUE PASSWORD
 function getChar() {
     var passwordArray = [];
-        console.log("userSpecialChar",userSpecialChar);
+        console.log('userSpecialChar',userSpecialChar);
     
     if (userSpecialChar) {
         passwordArray = passwordArray.concat(specialCharSet);
@@ -67,13 +66,13 @@ function getChar() {
     if (userNumeric) {
         passwordArray = passwordArray.concat(numericSet);
     }
-        console.log("passwordArray",passwordArray);
+        console.log('passwordArray',passwordArray);
 
 passwordText = '';    
     for (var i = 0; i <= passwordLength; i++) {
     passwordText = passwordText + passwordArray[Math.floor(Math.random() * passwordArray.length)]
 }
-console.log("passwordText", passwordText);
+console.log('passwordText', passwordText);
 return passwordText;
 
 }
